@@ -30,7 +30,7 @@ const Login = () => {
       password: password
     }, {
       headers: {
-        'origin': 'https://mern-mynotes.herokuapp.com'
+        'Content-Type': 'application/json'
 
       }
     });
