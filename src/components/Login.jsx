@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import HOME_URL from '../config'
+import API_URL from '../config'
 
 const Login = () => {
 
@@ -25,7 +25,7 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const login = await axios.post(`${HOME_URL}api/auth/signin`, {
+    const login = await axios.post(`${API_URL}api/auth/signin`, {
       username: username,
       password: password
     });

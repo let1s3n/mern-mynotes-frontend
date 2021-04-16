@@ -1,9 +1,9 @@
-let HOME_URL;
+let API_URL;
 if (process.env.NODE_ENV === 'production') {
 
-  HOME_URL = process.env.HOME_URL;
+  API_URL = process.env.API_URL;
 } else {
-  HOME_URL = process.env.REACT_APP_HOME_URL;
+  API_URL = process.env.REACT_APP_API_URL;
 }
 
-export default HOME_URL;
+export default API_URL;

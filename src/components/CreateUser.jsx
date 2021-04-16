@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import HOME_URL from '../config'
+import API_URL from '../config'
 const CreateUser = () => {
 
   const [users, setUsers] = useState([]);
@@ -11,7 +11,7 @@ const CreateUser = () => {
   });
 
   const getUsers = async () => {
-    const res = await axios.get(`${HOME_URL}api/users`, {
+    const res = await axios.get(`${API_URL}api/users`, {
       headers: {
         Authorization: 'Bearer ' + window.sessionStorage.getItem('token')
       }
@@ -34,7 +34,7 @@ const CreateUser = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.post(`${HOME_URL}api/users`, newUserInfo, {
+    await axios.post(`${API_URL}api/users`, newUserInfo, {
       headers: {
         Authorization: 'Bearer ' + window.sessionStorage.getItem('token')
       }
@@ -49,7 +49,7 @@ const CreateUser = () => {
   }
 
   const deleteUser = async (id) => {
-    await axios.delete(`${HOME_URL}api/users/` + id, {
+    await axios.delete(`${API_URL}api/users/` + id, {
       headers: {
         Authorization: 'Bearer ' + window.sessionStorage.getItem('token')
       }

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { format } from 'timeago.js'
 import { Link } from 'react-router-dom'
-import HOME_URL from '../config'
+import API_URL from '../config'
 
 const NotesList = () => {
   const [notes, setNotes] = useState([]);
 
   const getNotes = async () => {
-    const res = await axios.get(`${HOME_URL}api/notes`, {
+    const res = await axios.get(`${API_URL}api/notes`, {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.token
       }
@@ -22,7 +22,7 @@ const NotesList = () => {
 
 
   const deleteNote = async id => {
-    await axios.delete(`${HOME_URL}api/notes/` + id, {
+    await axios.delete(`${API_URL}api/notes/` + id, {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.token
       }
