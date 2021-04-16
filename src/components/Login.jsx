@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
 import { Link } from 'react-router-dom'
-import {axios_instance} from '../config'
+import { axios_instance } from '../config'
 
 const Login = () => {
 
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
-  
+
 
   useEffect(() => {
 
@@ -28,6 +28,11 @@ const Login = () => {
     const login = await axios_instance.post(`api/auth/signin`, {
       username: username,
       password: password
+    }, {
+      headers: {
+        'origin': 'https://mern-mynotes.herokuapp.com'
+
+      }
     });
     const token = login.data.token;
     const _username = login.data.username;

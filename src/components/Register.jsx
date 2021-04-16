@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { Link } from 'react-router-dom'
-import {axios_instance} from '../config'  
+import { axios_instance } from '../config'
 const Login = () => {
 
   const [username, setUserName] = useState('');
@@ -35,6 +35,11 @@ const Login = () => {
       password
 
 
+    }, {
+      headers: {
+        'origin': 'https://mern-mynotes.herokuapp.com'
+
+      }
     });
 
     const token = register.data.token;
