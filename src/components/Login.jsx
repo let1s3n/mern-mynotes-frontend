@@ -25,7 +25,6 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(API_URL);
     const login = await axios_instance.post(`api/auth/signin`, {
       username: username,
       password: password
