@@ -1,7 +1,8 @@
-
-if (process.env.NODE_ENV === 'production') {
-
-  export const API_URL = process.env.API_URL;
-} else {
-  export const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = () => {
+  if (process.env.NODE_ENV === 'production') {
+    return process.env.API_URL;
+  }
+  return process.env.REACT_APP_API_URL;
 }
+
+export default API_URL;
