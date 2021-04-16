@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import {API_URL} from '../config'
+import {axios_instance} from '../config'
 
 const CreateNote = (props) => {
 
@@ -19,7 +19,7 @@ const CreateNote = (props) => {
   const [id, setId] = useState('');
 
   const getUser = async () => {
-    const res = await axios.get(`${API_URL}api/users`, {
+    const res = await axios_instance.get(`api/users`, {
       headers: {
         Authorization: 'Bearer ' + window.sessionStorage.getItem('token')
       }
@@ -32,7 +32,7 @@ const CreateNote = (props) => {
 
   const checkEditing = async () => {
     if (window.location.href === '/edit/' + props.match.params.id) {
-      const res = await axios.get(`${API_URL}api/notes/` + props.match.params.id);
+      const res = await axios_instance.get(`api/notes/` + props.match.params.id);
       /* console.log(res.data); */
       const { title, content, date, author } = res.data;
       setState(
@@ -72,14 +72,14 @@ const CreateNote = (props) => {
     };
 
     if (editing) {
-      await axios.put(`${API_URL}api/notes/` + id, newNote, {
+      await axios_instance.put(`api/notes/` + id, newNote, {
         headers: {
           Authorization: 'Bearer ' + window.sessionStorage.getItem('token')
         }
       });
     } else {
       /* console.log(window.localStorage.getItem('token')) */
-      await axios.post(`${API_URL}api/notes`, newNote, {
+      await axios_instance.post(`api/notes`, newNote, {
         headers: {
           Authorization: 'Bearer ' + window.sessionStorage.getItem('token')
         }

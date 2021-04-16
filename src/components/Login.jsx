@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+
 import { Link } from 'react-router-dom'
-import {API_URL} from '../config'
+import {axios_instance} from '../config'
 
 const Login = () => {
 
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
-
+  
 
   useEffect(() => {
 
@@ -26,7 +26,7 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(API_URL);
-    const login = await axios.post(`${API_URL}api/auth/signin`, {
+    const login = await axios_instance.post(`api/auth/signin`, {
       username: username,
       password: password
     });
