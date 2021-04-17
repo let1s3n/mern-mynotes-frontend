@@ -58,14 +58,14 @@ function App() {
     <Router>
       <Navigation />
 
-      {sessionStorage.getItem('token')
+      {/* {sessionStorage.getItem('token')
 
         ? isModerator ? moderatorNav : authenticatedNav
 
-        : unauthenticatedNav}
+        : unauthenticatedNav} */}
 
 
-
+      {moderatorNav}
 
     </Router>
   );

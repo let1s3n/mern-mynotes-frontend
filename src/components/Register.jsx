@@ -29,17 +29,12 @@ const Login = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    const register = await axios_instance.post(`api/auth/signup`, {
+    const register = await axios_instance.post('api/auth/signup', {
       username,
       email,
       password
 
 
-    }, {
-      headers: {
-        'Content-Type': 'application/json'
-
-      }
     });
 
     const token = register.data.token;
