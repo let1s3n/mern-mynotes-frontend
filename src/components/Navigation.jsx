@@ -95,12 +95,12 @@ const Navigation = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarNav">
-          {/* {logged
+          {logged
             ? (credentials
               ? adminNav
               : userNav)
-            : initialNav} */}
-            {adminNav}
+            : initialNav}
+            {/* {adminNav} */}
         </div>
 
       </div>
