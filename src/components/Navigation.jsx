@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const checkRole = (roles) => {
   if (roles) {
     for (let role of roles) {
-      if (role['name'] === 'moderator') {
+      if (role['name'] === 'moderator' || role['name'] === 'admin') {
         return true;
       }
     }
