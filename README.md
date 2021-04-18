@@ -1,2 +1,1 @@
-# Frontend
-## React
+# mynotes app frontend
